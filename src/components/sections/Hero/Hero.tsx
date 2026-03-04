@@ -41,14 +41,35 @@ const Hero = () => {
     const scrollHint = scrollHintRef.current;
 
     const ctx = gsap.context(() => {
+      // Controls for video expansion behavior.
+      // Tune these values to adjust how the video grows.
+      const expandConfig = {
+        targetWidthVw: 65, // final container width in vw
+        verticalScale: 1.06, // subtle top/bottom growth, centered
+        rightPadding: 16, // px padding from viewport right edge
+        contentGap: 16, // used only when clampToContent is true
+        clampToContent: false, // true = never cross content area, false = always use targetWidthVw
+        scrollDistance: '+=200%',
+      };
+
       const wrapperRect = videoWrapper.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
-      // Expand to a right-side target (60vw), not fullscreen.
-      const targetWidth = viewportWidth * 0.6;
-      const targetScale = targetWidth / wrapperRect.width;
-      const currentRight = wrapperRect.left + wrapperRect.width;
-      const targetRight = viewportWidth * 0.85;
-      const targetX = targetRight - currentRight;
+      const contentRect = heroLeft.getBoundingClientRect();
+
+      // Final fixed container (right side): 70vw x 100vh by default.
+      const preferredTargetWidth = viewportWidth * (expandConfig.targetWidthVw / 100);
+      const preferredLeft = viewportWidth - expandConfig.rightPadding - preferredTargetWidth;
+      const minLeft = contentRect.right + expandConfig.contentGap;
+      const targetLeft = expandConfig.clampToContent
+        ? Math.max(minLeft, preferredLeft)
+        : preferredLeft;
+      const targetWidth = expandConfig.clampToContent
+        ? viewportWidth - expandConfig.rightPadding - targetLeft
+        : preferredTargetWidth;
+      const targetX = targetLeft - wrapperRect.left;
+      const targetScaleX = targetWidth / wrapperRect.width;
+      const targetScaleY = expandConfig.verticalScale;
+      const targetY = -((wrapperRect.height * (targetScaleY - 1)) / 2);
 
       // Initial states
       gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
@@ -56,10 +77,11 @@ const Hero = () => {
         y: 0,
       });
       gsap.set(videoWrapper, {
-        scale: 1,
+        scaleX: 1,
+        scaleY: 1,
         x: 0,
         y: 0,
-        transformOrigin: 'center center',
+        transformOrigin: 'left center',
       });
       gsap.set(video, { opacity: 1 });
 
@@ -67,7 +89,7 @@ const Hero = () => {
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
-          end: '+=200%',
+          end: expandConfig.scrollDistance,
           scrub: true,
           pin: true,
           pinSpacing: true,
@@ -120,7 +142,9 @@ const Hero = () => {
         videoWrapper,
         {
           x: targetX,
-          scale: targetScale,
+          y: targetY,
+          scaleX: targetScaleX,
+          scaleY: targetScaleY,
           ease: 'power2.inOut',
         },
         0
