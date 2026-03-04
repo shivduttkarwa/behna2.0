@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Loader from './components/common/Loader/Loader';
 import CustomCursor from './components/common/CustomCursor/CustomCursor';
 import Navigation from './components/common/Navigation/Navigation';
 import Hero from './components/sections/Hero/Hero';
@@ -51,7 +50,6 @@ function App() {
 
   return (
     <div className="App">
-      <Loader />
       <CustomCursor />
       <Navigation />
       <Hero />

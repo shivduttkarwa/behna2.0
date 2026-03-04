@@ -10,10 +10,8 @@ const CustomCursor = () => {
     const cursorDot = cursorDotRef.current;
     if (!cursor || !cursorDot) return;
 
-    // Activate cursor after loader
-    setTimeout(() => {
-      cursor.classList.add('active');
-    }, 2000);
+    // Activate cursor immediately
+    cursor.classList.add('active');
 
     let mouseX = 0;
     let mouseY = 0;

@@ -21,6 +21,7 @@
     white-space: nowrap;
     z-index: 0;
     user-select: none;
+    opacity: 1; /* Ensure background text is visible by default */
 }
 
 .hero-content {
@@ -32,6 +33,7 @@
     align-items: center;
     position: relative;
     z-index: 2;
+    opacity: 1; /* Ensure content is visible by default */
 }
 
 .hero-left {
