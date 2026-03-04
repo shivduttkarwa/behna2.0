@@ -9,165 +9,125 @@ const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const heroLeftRef = useRef<HTMLDivElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const bgTextRef = useRef<HTMLDivElement>(null);
   const floatingImg1Ref = useRef<HTMLDivElement>(null);
   const floatingImg2Ref = useRef<HTMLDivElement>(null);
+  const scrollHintRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!heroRef.current || !videoRef.current || !contentRef.current || !videoWrapperRef.current) return;
-    if (!floatingImg1Ref.current || !floatingImg2Ref.current || !bgTextRef.current) return;
+    if (
+      !heroRef.current ||
+      !videoRef.current ||
+      !contentRef.current ||
+      !heroLeftRef.current ||
+      !videoWrapperRef.current ||
+      !bgTextRef.current ||
+      !floatingImg1Ref.current ||
+      !floatingImg2Ref.current ||
+      !scrollHintRef.current
+    ) {
+      return;
+    }
 
     const hero = heroRef.current;
     const video = videoRef.current;
-    const content = contentRef.current;
+    const heroLeft = heroLeftRef.current;
+    const videoWrapper = videoWrapperRef.current;
+    const bgText = bgTextRef.current;
     const floatingImg1 = floatingImg1Ref.current;
     const floatingImg2 = floatingImg2Ref.current;
-    const bgText = bgTextRef.current;
+    const scrollHint = scrollHintRef.current;
 
-    // Kill any existing animations first
-    gsap.killTweensOf([video, content, bgText, floatingImg1, floatingImg2]);
+    const ctx = gsap.context(() => {
+      // Initial states
+      gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
+        opacity: 1,
+        y: 0,
+      });
+      gsap.set(videoWrapper, {
+        scale: 1,
+        transformOrigin: 'center center',
+      });
+      gsap.set(video, { opacity: 1 });
 
-    // Set initial states - CRITICAL: Content must start visible
-    // Use inline styles to ensure visibility before GSAP takes over
-    content.style.opacity = '1';
-    content.style.transform = 'translateY(0px)';
-    bgText.style.opacity = '1';
-    floatingImg1.style.opacity = '1';
-    floatingImg2.style.opacity = '1';
-    video.style.opacity = '1';
-    video.style.setProperty('opacity', '1', 'important');
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: '+=200%',
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
 
-    // Set GSAP initial states - use clearProps to remove any conflicting styles
-    gsap.set(video, { scale: 1, opacity: 1, clearProps: 'opacity' });
-    gsap.set(content, { opacity: 1, y: 0, clearProps: 'opacity,y' });
-    gsap.set(bgText, { opacity: 1, clearProps: 'opacity' });
-    gsap.set(floatingImg1, { opacity: 1, clearProps: 'opacity' });
-    gsap.set(floatingImg2, { opacity: 1, clearProps: 'opacity' });
+      // Fade only text/auxiliary elements (not the video container).
+      heroTl.to(
+        heroLeft,
+        {
+          opacity: 0,
+          y: 40,
+          ease: 'power2.out',
+        },
+        0
+      );
 
-    // Create unified timeline - use paused and manual control
-    const heroTl = gsap.timeline({
-      paused: true,
-    });
+      heroTl.to(
+        bgText,
+        {
+          opacity: 0,
+          ease: 'power2.out',
+        },
+        0
+      );
 
-    // Fade out content - explicitly set from and to states
-    heroTl.fromTo(content, {
-      opacity: 1,
-      y: 0,
-    }, {
-      opacity: 0,
-      y: 50,
-      ease: 'power2.out',
-    }, 0);
+      heroTl.to(
+        floatingImg1,
+        {
+          opacity: 0,
+          y: -30,
+          scale: 0.85,
+          ease: 'power2.out',
+        },
+        0
+      );
 
-    // Fade out background text
-    heroTl.fromTo(bgText, {
-      opacity: 1,
-    }, {
-      opacity: 0,
-      ease: 'power2.out',
-    }, 0);
+      heroTl.to(
+        floatingImg2,
+        {
+          opacity: 0,
+          y: 30,
+          scale: 0.85,
+          ease: 'power2.out',
+        },
+        0
+      );
 
-    // Fade out floating images completely
-    heroTl.fromTo(floatingImg1, {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    }, {
-      opacity: 0,
-      scale: 0.8,
-      y: -30,
-      ease: 'power2.out',
-    }, 0);
+      heroTl.to(
+        scrollHint,
+        {
+          opacity: 0,
+          y: 20,
+          ease: 'power2.out',
+        },
+        0
+      );
 
-    heroTl.fromTo(floatingImg2, {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-    }, {
-      opacity: 0,
-      scale: 0.8,
-      y: 30,
-      ease: 'power2.out',
-    }, 0);
-
-    // Scale video - opacity handled separately via inline styles
-    heroTl.fromTo(video, {
-      scale: 1,
-    }, {
-      scale: 2.5,
-      ease: 'power2.out',
-      onUpdate: () => {
-        // Continuously force opacity to 1 during animation
-        video.style.opacity = '1';
-        video.style.setProperty('opacity', '1', 'important');
-      },
-    }, 0);
-
-    // Create ScrollTrigger with combined logic
-    ScrollTrigger.create({
-      trigger: hero,
-      start: 'top top',
-      end: '+=200%',
-      scrub: 1,
-      pin: true,
-      pinSpacing: true,
-      onUpdate: (self: ScrollTrigger) => {
-        const progress = self.progress;
-        
-        // Update timeline progress manually
-        heroTl.progress(progress);
-        
-        // Ensure content is visible when progress is 0
-        if (progress === 0) {
-          content.style.opacity = '1';
-          content.style.transform = 'translateY(0px)';
-          bgText.style.opacity = '1';
-          floatingImg1.style.opacity = '1';
-          floatingImg2.style.opacity = '1';
-        }
-        
-        // ALWAYS force video opacity to 1 - multiple methods to ensure it sticks
-        video.style.opacity = '1';
-        video.style.setProperty('opacity', '1', 'important');
-        
-        // Handle fullscreen transition at 60% progress
-        if (progress > 0.6) {
-          const fullscreenProgress = (progress - 0.6) / 0.4;
-          
-          // Transition video to fixed fullscreen
-          video.style.position = 'fixed';
-          video.style.top = '0';
-          video.style.left = '0';
-          video.style.width = '100vw';
-          video.style.height = '100vh';
-          video.style.zIndex = '999';
-          video.style.objectFit = 'cover';
-          video.style.opacity = '1';
-          video.style.setProperty('opacity', '1', 'important');
-
-          // Continue scaling in fullscreen
-          const finalScale = 2.5 + fullscreenProgress * 0.5;
-          gsap.set(video, { scale: finalScale });
-        } else {
-          // Keep video in container
-          video.style.position = 'relative';
-          video.style.width = '100%';
-          video.style.height = '100%';
-          video.style.zIndex = '1';
-          video.style.opacity = '1';
-          video.style.setProperty('opacity', '1', 'important');
-        }
-      },
-    });
-
-
-    // Refresh ScrollTrigger to ensure proper initialization
-    ScrollTrigger.refresh();
+      // Keep video visible and scale its wrapper for the expansion effect.
+      heroTl.to(
+        videoWrapper,
+        {
+          scale: 1.85,
+          ease: 'power2.out',
+        },
+        0
+      );
+    }, hero);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
-      gsap.killTweensOf([video, content, bgText, floatingImg1, floatingImg2]);
+      ctx.revert();
     };
   }, []);
 
@@ -176,7 +136,7 @@ const Hero = () => {
       <div className="hero-bg-text" ref={bgTextRef}>Élégance</div>
 
       <div className="hero-content" ref={contentRef}>
-        <div className="hero-left">
+        <div className="hero-left" ref={heroLeftRef}>
           <div className="hero-tag">Spring / Summer 2024</div>
           <h1 className="hero-title">
             <span>
@@ -237,7 +197,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="scroll-hint">
+      <div className="scroll-hint" ref={scrollHintRef}>
         <span className="scroll-line"></span>
         <span>Scroll to discover</span>
       </div>
