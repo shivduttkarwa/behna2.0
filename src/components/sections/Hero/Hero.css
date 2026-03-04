@@ -196,9 +196,8 @@
 .hero-floating-1 {
     bottom: 10%;
     left: 35%;
-    animation: floatIn1 1.2s 0.5s ease forwards;
-    opacity: 1;
     z-index: 4;
+    /* Animation handled by GSAP - removed CSS animation */
 }
 
 .hero-floating-2 {
@@ -206,9 +205,8 @@
     right: 25%;
     width: 160px;
     height: 220px;
-    animation: floatIn2 1.2s 0.7s ease forwards;
-    opacity: 1;
     z-index: 4;
+    /* Animation handled by GSAP - removed CSS animation */
 }
 
 @keyframes floatIn1 {

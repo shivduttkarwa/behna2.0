@@ -39,7 +39,7 @@ const Instagram = () => {
     <section className="instagram">
       <div className="instagram-header">
         <div className="instagram-handle">
-          <a href="#">@maisonelite</a>
+          <a href="#">@behna</a>
         </div>
         <p style={{ color: 'var(--taupe)', letterSpacing: '0.1em' }}>
           Follow our journey

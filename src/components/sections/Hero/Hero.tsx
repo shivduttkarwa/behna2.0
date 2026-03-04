@@ -16,132 +16,136 @@ const Hero = () => {
 
   useEffect(() => {
     if (!heroRef.current || !videoRef.current || !contentRef.current || !videoWrapperRef.current) return;
+    if (!floatingImg1Ref.current || !floatingImg2Ref.current || !bgTextRef.current) return;
 
     const hero = heroRef.current;
     const video = videoRef.current;
     const content = contentRef.current;
+    const floatingImg1 = floatingImg1Ref.current;
+    const floatingImg2 = floatingImg2Ref.current;
+    const bgText = bgTextRef.current;
 
-    // Set initial state - ensure video is visible
-    gsap.set(video, {
-      scale: 1,
-      opacity: 1,
-    });
+    // Kill any existing animations first
+    gsap.killTweensOf([video, content, bgText, floatingImg1, floatingImg2]);
 
-    // Main scroll animation timeline with PIN
-    const mainTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: hero,
-        start: 'top top',
-        end: '+=200%', // Scroll distance for animation
-        scrub: true, // Smooth scrubbing tied to scroll
-        pin: true, // Pin the hero section
-        pinSpacing: true,
-      },
-    });
+    // Set initial states - CRITICAL: Content must start visible
+    gsap.set(video, { scale: 1, opacity: 1 });
+    gsap.set(content, { opacity: 1, y: 0 });
+    gsap.set(bgText, { opacity: 1 });
+    gsap.set(floatingImg1, { opacity: 1 });
+    gsap.set(floatingImg2, { opacity: 1 });
 
-    // Fade out content
-    mainTl.to(
-      content,
-      {
-        opacity: 0,
-        y: 50,
-        ease: 'power2.out',
-      },
-      0
-    );
+    // Lock video opacity permanently via inline style
+    video.style.opacity = '1';
+    video.style.setProperty('opacity', '1', 'important');
 
-    // Fade out background text
-    if (bgTextRef.current) {
-      mainTl.to(
-        bgTextRef.current,
-        {
-          opacity: 0,
-          ease: 'power2.out',
-        },
-        0
-      );
-    }
-
-    // Fade out floating images
-    if (floatingImg1Ref.current) {
-      mainTl.to(
-        floatingImg1Ref.current,
-        {
-          opacity: 0,
-          scale: 0.8,
-          ease: 'power2.out',
-        },
-        0
-      );
-    }
-
-    if (floatingImg2Ref.current) {
-      mainTl.to(
-        floatingImg2Ref.current,
-        {
-          opacity: 0,
-          scale: 0.8,
-          ease: 'power2.out',
-        },
-        0
-      );
-    }
-
-    // Scale video smoothly from 1 to 2.5
-    mainTl.to(
-      video,
-      {
-        scale: 2.5,
-        ease: 'power2.out',
-      },
-      0
-    );
-
-    // Separate ScrollTrigger for fullscreen transition
-    ScrollTrigger.create({
+    // Create ScrollTrigger
+    const scrollTrigger = ScrollTrigger.create({
       trigger: hero,
       start: 'top top',
       end: '+=200%',
-      scrub: true,
+      scrub: 1,
+      pin: true,
+      pinSpacing: true,
       onUpdate: (self: ScrollTrigger) => {
         const progress = self.progress;
-
+        
+        // ALWAYS force video opacity to 1 - multiple methods to ensure it sticks
+        video.style.opacity = '1';
+        video.style.setProperty('opacity', '1', 'important');
+        
+        // Handle fullscreen transition at 60% progress
         if (progress > 0.6) {
-          // Transition to fullscreen - unpin at this point
-          const fullscreenProgress = (progress - 0.6) / 0.4; // 0 to 1 from 60% to 100%
+          const fullscreenProgress = (progress - 0.6) / 0.4;
           
-          gsap.set(video, {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            zIndex: 999,
-            objectFit: 'cover',
-          });
+          // Transition video to fixed fullscreen
+          video.style.position = 'fixed';
+          video.style.top = '0';
+          video.style.left = '0';
+          video.style.width = '100vw';
+          video.style.height = '100vh';
+          video.style.zIndex = '999';
+          video.style.objectFit = 'cover';
+          video.style.opacity = '1';
+          video.style.setProperty('opacity', '1', 'important');
 
-          // Continue scaling in fullscreen - keep opacity at 1
+          // Continue scaling in fullscreen
           const finalScale = 2.5 + fullscreenProgress * 0.5;
-          gsap.set(video, {
-            scale: finalScale,
-            opacity: 1, // Keep video fully visible
-          });
+          gsap.set(video, { scale: finalScale });
         } else {
-          // Keep video in container - maintain full opacity
-          gsap.set(video, {
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            zIndex: 1,
-            opacity: 1, // Always keep video visible
-          });
+          // Keep video in container
+          video.style.position = 'relative';
+          video.style.width = '100%';
+          video.style.height = '100%';
+          video.style.zIndex = '1';
+          video.style.opacity = '1';
+          video.style.setProperty('opacity', '1', 'important');
         }
       },
     });
 
+    // Create unified timeline
+    const heroTl = gsap.timeline({
+      scrollTrigger: scrollTrigger,
+    });
+
+    // Fade out content - explicitly set from and to states
+    heroTl.fromTo(content, {
+      opacity: 1,
+      y: 0,
+    }, {
+      opacity: 0,
+      y: 50,
+      ease: 'power2.out',
+    }, 0);
+
+    // Fade out background text
+    heroTl.fromTo(bgText, {
+      opacity: 1,
+    }, {
+      opacity: 0,
+      ease: 'power2.out',
+    }, 0);
+
+    // Fade out floating images completely
+    heroTl.fromTo(floatingImg1, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+    }, {
+      opacity: 0,
+      scale: 0.8,
+      y: -30,
+      ease: 'power2.out',
+    }, 0);
+
+    heroTl.fromTo(floatingImg2, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+    }, {
+      opacity: 0,
+      scale: 0.8,
+      y: 30,
+      ease: 'power2.out',
+    }, 0);
+
+    // Scale video - opacity handled separately via inline styles
+    heroTl.fromTo(video, {
+      scale: 1,
+    }, {
+      scale: 2.5,
+      ease: 'power2.out',
+      onUpdate: () => {
+        // Continuously force opacity to 1 during animation
+        video.style.opacity = '1';
+        video.style.setProperty('opacity', '1', 'important');
+      },
+    }, 0);
+
     return () => {
-      // Clean up all ScrollTriggers
       ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
+      gsap.killTweensOf([video, content, bgText, floatingImg1, floatingImg2]);
     };
   }, []);
 

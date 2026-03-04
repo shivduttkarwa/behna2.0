@@ -24,7 +24,7 @@ const Navigation = () => {
   return (
     <nav className={isScrolled ? 'scrolled' : ''} id="navbar">
       <a href="#" className="logo">
-        MAISON ÉLITE
+        BEHNA
       </a>
       <ul className="nav-center">
         {navLinks.map((link) => (

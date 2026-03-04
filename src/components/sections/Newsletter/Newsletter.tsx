@@ -16,7 +16,7 @@ const Newsletter = () => {
       <div className="newsletter-bg">M</div>
       <div className="newsletter-wrapper">
         <div className="newsletter-content">
-          <h2 className="newsletter-title">Join the Maison</h2>
+          <h2 className="newsletter-title">Join Behna</h2>
           <p className="newsletter-text">
             Be the first to discover new collections, exclusive events, and
             curated style inspiration.

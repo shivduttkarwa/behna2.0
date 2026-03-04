@@ -46,7 +46,7 @@ const Story = () => {
           <span className="story-tag">Our Heritage</span>
           <h2 className="story-title">Crafting Timeless Elegance Since 1987</h2>
           <p className="story-text">
-            Founded in the heart of Paris, Maison Élite has been redefining
+            Founded in the heart of Paris, Behna has been redefining
             contemporary luxury for over three decades. Our commitment to
             exceptional craftsmanship and sustainable practices has made us a
             destination for women who appreciate quality and understated

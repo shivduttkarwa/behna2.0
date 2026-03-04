@@ -36,7 +36,7 @@ const Footer = () => {
       title: 'Contact',
       links: [
         { label: '+33 1 42 86 87 88', href: 'tel:+33142868788' },
-        { label: 'hello@maisonelite.com', href: 'mailto:hello@maisonelite.com' },
+        { label: 'hello@behna.com', href: 'mailto:hello@behna.com' },
         { label: '12 Rue du Faubourg', href: '#' },
         { label: 'Saint-Honoré, Paris', href: '#' },
       ],
@@ -62,7 +62,7 @@ const Footer = () => {
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
-          <span className="logo serif">MAISON ÉLITE</span>
+          <span className="logo serif">BEHNA</span>
           <p className="footer-desc">
             Curating timeless elegance for the modern woman. Where exceptional
             craftsmanship meets contemporary design.
@@ -92,7 +92,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="footer-copyright">
-          © 2024 MAISON ÉLITE. ALL RIGHTS RESERVED.
+          © 2024 BEHNA. ALL RIGHTS RESERVED.
         </div>
 
         <div className="footer-payments">

@@ -8,7 +8,7 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: '1',
-      text: 'Maison Élite understands that true luxury lies in the details. Every piece I own from them has become a cherished part of my wardrobe.',
+      text: 'Behna understands that true luxury lies in the details. Every piece I own from them has become a cherished part of my wardrobe.',
       author: {
         name: 'ALEXANDRA WEBB',
         title: 'Fashion Director, Vogue Paris',

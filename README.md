@@ -1,4 +1,4 @@
-# MAISON ÉLITE - React + Vite + TypeScript
+# Behna - React + Vite + TypeScript
 
 A sophisticated, international-grade React application built with Vite and TypeScript, featuring a modern e-commerce fashion website.
 
