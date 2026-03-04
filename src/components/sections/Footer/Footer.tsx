@@ -35,10 +35,9 @@ const Footer = () => {
     {
       title: 'Contact',
       links: [
-        { label: '+33 1 42 86 87 88', href: 'tel:+33142868788' },
-        { label: 'hello@behna.com', href: 'mailto:hello@behna.com' },
-        { label: '12 Rue du Faubourg', href: '#' },
-        { label: 'Saint-Honoré, Paris', href: '#' },
+        { label: '+91 800517189', href: 'tel:+91800517189' },
+        { label: 'Plot Number: 60, Gandhi Path West', href: '#' },
+        { label: 'Vaishali Nagar', href: '#' },
       ],
     },
   ];

@@ -144,18 +144,19 @@ const Hero = () => {
 
       <div className="hero-content" ref={contentRef}>
         <div className="hero-left" ref={heroLeftRef}>
-          <div className="hero-tag">Spring / Summer 2026</div>
+          <div className="hero-tag">Rajasthan's Finest</div>
           <h1 className="hero-title">
-            <span>Effortless</span>
-            <span>Modern</span>
-            <span className="hero-title-accent">Elegance</span>
+            <span>Traditional</span>
+            <span>Elegance</span>
+            <span className="hero-title-accent">Redefined</span>
           </h1>
           <div className="hero-right-content">
             <p className="hero-desc">
-              Discover a curated collection of timeless pieces designed for the
-              modern woman who values both style and substance.
+              Premium women's clothing in Rajasthan. From elegant suits and co-ord sets to 
+              beautiful kurtis, stunning lehengas, and bespoke boutique creations. 
+              Plus sizes available. Crafted with love for the modern Indian woman.
             </p>
-            <a href="#" className="hero-cta">
+            <a href="#collections" className="hero-cta">
               <span>Explore Collection</span>
               <span className="hero-cta-line"></span>
             </a>
