@@ -2,6 +2,8 @@
 
 A sophisticated, international-grade React application built with Vite and TypeScript, featuring a modern e-commerce fashion website.
 
+🌐 **Live Site**: [View on GitHub Pages](https://shivduttkarwa.github.io/behna2.0/)
+
 ## 🚀 Features
 
 - **React 18** with TypeScript
@@ -104,7 +106,25 @@ The project uses CSS custom properties (variables) for consistent theming:
 
 ## 🚀 Deployment
 
-The project is ready for deployment on platforms like:
+### GitHub Pages (Automated)
+
+The project is configured with GitHub Actions for automatic deployment:
+
+1. **Enable GitHub Pages**:
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Select "GitHub Actions" as the source
+
+2. **Automatic Deployment**:
+   - Every push to `main` branch triggers automatic build and deployment
+   - The workflow is located at `.github/workflows/deploy.yml`
+
+3. **Manual Deployment**:
+   - You can also trigger deployment manually from the "Actions" tab
+
+### Other Platforms
+
+The project is also ready for deployment on:
 - Vercel
 - Netlify
 - AWS Amplify
