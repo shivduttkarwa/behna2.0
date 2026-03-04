@@ -1,0 +1,142 @@
+.editorial {
+    padding: 0 5% 10rem;
+}
+
+.editorial-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+}
+
+.editorial-left {
+    background: var(--noir);
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editorial-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+}
+
+.editorial-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: var(--blanc);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.editorial-title em {
+    font-style: italic;
+    color: var(--stone);
+}
+
+.editorial-text {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--stone);
+    font-weight: 300;
+    max-width: 450px;
+    margin-bottom: 3rem;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    border: 1px solid var(--blanc);
+    color: var(--blanc);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--blanc);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+
+.btn-outline:hover {
+    color: var(--noir);
+}
+
+.btn-outline:hover::before {
+    transform: translateX(0);
+}
+
+.editorial-right {
+    position: relative;
+    overflow: hidden;
+}
+
+.editorial-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.editorial-badge {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    width: 120px;
+    height: 120px;
+    background: var(--blanc);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.editorial-badge span {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.editorial-badge strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+@media (max-width: 992px) {
+    .editorial-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .editorial-left {
+        order: 2;
+    }
+
+    .editorial-right {
+        height: 50vh;
+    }
+}

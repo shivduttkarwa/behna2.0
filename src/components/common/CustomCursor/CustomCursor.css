@@ -1,0 +1,39 @@
+.cursor {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--noir);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.cursor.active {
+    opacity: 1;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--noir);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor.hovering {
+    width: 80px;
+    height: 80px;
+    background: rgba(10, 10, 10, 0.05);
+    border-color: var(--gold);
+}
+
+.cursor.hovering .cursor-text {
+    opacity: 1;
+}

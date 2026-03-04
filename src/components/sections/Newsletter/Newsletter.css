@@ -1,0 +1,107 @@
+.newsletter {
+    padding: 8rem 5%;
+    background: var(--noir);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-bg {
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30vw;
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+    z-index: 0;
+}
+
+.newsletter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-content {
+    max-width: 500px;
+}
+
+.newsletter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--blanc);
+    margin-bottom: 1rem;
+}
+
+.newsletter-text {
+    font-size: 0.95rem;
+    color: var(--stone);
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-input {
+    width: 350px;
+    padding: 1.3rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--blanc);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.newsletter-btn {
+    padding: 1.3rem 2.5rem;
+    background: var(--blanc);
+    border: none;
+    color: var(--noir);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background: var(--gold);
+}
+
+@media (max-width: 992px) {
+    .newsletter-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .newsletter-input {
+        width: 100%;
+    }
+}

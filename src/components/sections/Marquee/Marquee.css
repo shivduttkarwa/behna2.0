@@ -1,0 +1,38 @@
+.marquee-container {
+    padding: 3rem 0;
+    background: var(--noir);
+    overflow: hidden;
+}
+
+.marquee {
+    display: flex;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 4rem;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--blanc);
+    letter-spacing: 0.1em;
+}
+
+.marquee-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}

@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --noir: #0A0A0A;
+    --blanc: #FFFFFF;
+    --cream: #FAF8F5;
+    --stone: #E8E4DD;
+    --sand: #D4CFC6;
+    --charcoal: #1A1A1A;
+    --taupe: #9A9490;
+    --gold: #C9A962;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+    color: var(--noir);
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--noir);
+}
+
+/* Typography */
+.serif {
+    font-family: 'Cormorant Garamond', serif;
+}
