@@ -55,36 +55,19 @@
 
 .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 300;
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 2rem;
 }
 
 .hero-title span {
     display: block;
-    overflow: hidden;
 }
 
-.hero-title span em {
-    display: block;
+.hero-title-accent {
     font-style: italic;
-    transform: translateY(100%);
-    animation: slideUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.hero-title span:nth-child(2) em {
-    animation-delay: 0.15s;
-}
-
-.hero-title span:nth-child(3) em {
-    animation-delay: 0.3s;
-}
-
-@keyframes slideUp {
-    to {
-        transform: translateY(0);
-    }
+    color: var(--taupe);
 }
 
 .hero-center {

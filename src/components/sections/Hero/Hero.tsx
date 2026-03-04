@@ -64,8 +64,7 @@ const Hero = () => {
       const targetWidth = expandConfig.clampToContent
         ? Math.max(wrapperRect.width, Math.min(preferredTargetWidth, maxAllowedWidthFromContent))
         : preferredTargetWidth;
-      const targetHeight = wrapperRect.height * expandConfig.verticalScale;
-      const targetY = -((targetHeight - wrapperRect.height) / 2);
+      const targetHeight = wrapperRect.height;
 
       // Initial states
       gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
@@ -75,7 +74,6 @@ const Hero = () => {
       gsap.set(videoWrapper, {
         width: wrapperRect.width,
         height: wrapperRect.height,
-        y: 0,
         transformOrigin: 'left center',
       });
       gsap.set(video, { opacity: 1 });
@@ -90,15 +88,6 @@ const Hero = () => {
           pinSpacing: true,
         },
       });
-
-      heroTl.to(
-        bgText,
-        {
-          opacity: 0,
-          ease: 'power2.out',
-        },
-        0
-      );
 
       heroTl.to(
         floatingImg1,
@@ -136,7 +125,6 @@ const Hero = () => {
       heroTl.to(
         videoWrapper,
         {
-          y: targetY,
           width: targetWidth,
           height: targetHeight,
           ease: 'power2.inOut',
@@ -156,17 +144,11 @@ const Hero = () => {
 
       <div className="hero-content" ref={contentRef}>
         <div className="hero-left" ref={heroLeftRef}>
-          <div className="hero-tag">Spring / Summer 2024</div>
+          <div className="hero-tag">Spring / Summer 2026</div>
           <h1 className="hero-title">
-            <span>
-              <em>Effortless</em>
-            </span>
-            <span>
-              <em>Modern</em>
-            </span>
-            <span>
-              <em>Elegance</em>
-            </span>
+            <span>Effortless</span>
+            <span>Modern</span>
+            <span className="hero-title-accent">Elegance</span>
           </h1>
           <div className="hero-right-content">
             <p className="hero-desc">
