@@ -187,14 +187,14 @@ const Hero = () => {
 
       <div className="hero-floating-img hero-floating-1" ref={floatingImg1Ref}>
         <img
-          src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=600&fit=crop"
-          alt="Fashion"
+          src="/assets/images/hero/poster-1.jpeg"
+          alt="Indian woman wearing saree"
         />
       </div>
       <div className="hero-floating-img hero-floating-2" ref={floatingImg2Ref}>
         <img
-          src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=600&fit=crop"
-          alt="Fashion"
+          src="/assets/images/hero/poster-2.jpeg"
+          alt="Indian woman wearing traditional lehenga"
         />
       </div>
 
