@@ -49,7 +49,7 @@ const Hero = () => {
         rightPadding: 16, // px padding from viewport right edge
         contentGap: 16, // min gap from content
         clampToContent: false, // allow stronger growth; content remains visible above video
-        scrollDistance: '+=200%',
+        scrollDistance: '+=150%',
       };
 
       const wrapperRect = videoWrapper.getBoundingClientRect();
