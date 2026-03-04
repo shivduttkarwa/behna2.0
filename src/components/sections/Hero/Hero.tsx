@@ -44,11 +44,11 @@ const Hero = () => {
       // Controls for video expansion behavior.
       // Tune these values to adjust how the video grows.
       const expandConfig = {
-        targetWidthVw: 65, // final container width in vw
-        verticalScale: 1.06, // subtle top/bottom growth, centered
+        targetWidthVw: 62, // final container width in vw
+        verticalScale: 1.1, // subtle top/bottom growth, centered
         rightPadding: 16, // px padding from viewport right edge
-        contentGap: 16, // used only when clampToContent is true
-        clampToContent: false, // true = never cross content area, false = always use targetWidthVw
+        contentGap: 16, // min gap from content
+        clampToContent: false, // allow stronger growth; content remains visible above video
         scrollDistance: '+=200%',
       };
 
@@ -56,20 +56,16 @@ const Hero = () => {
       const viewportWidth = window.innerWidth;
       const contentRect = heroLeft.getBoundingClientRect();
 
-      // Final fixed container (right side): 70vw x 100vh by default.
+      // Grow inside a right-anchored wrapper (no horizontal translation).
       const preferredTargetWidth = viewportWidth * (expandConfig.targetWidthVw / 100);
-      const preferredLeft = viewportWidth - expandConfig.rightPadding - preferredTargetWidth;
+      const currentRight = wrapperRect.left + wrapperRect.width;
       const minLeft = contentRect.right + expandConfig.contentGap;
-      const targetLeft = expandConfig.clampToContent
-        ? Math.max(minLeft, preferredLeft)
-        : preferredLeft;
+      const maxAllowedWidthFromContent = currentRight - minLeft;
       const targetWidth = expandConfig.clampToContent
-        ? viewportWidth - expandConfig.rightPadding - targetLeft
+        ? Math.max(wrapperRect.width, Math.min(preferredTargetWidth, maxAllowedWidthFromContent))
         : preferredTargetWidth;
-      const targetX = targetLeft - wrapperRect.left;
-      const targetScaleX = targetWidth / wrapperRect.width;
-      const targetScaleY = expandConfig.verticalScale;
-      const targetY = -((wrapperRect.height * (targetScaleY - 1)) / 2);
+      const targetHeight = wrapperRect.height * expandConfig.verticalScale;
+      const targetY = -((targetHeight - wrapperRect.height) / 2);
 
       // Initial states
       gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
@@ -77,9 +73,8 @@ const Hero = () => {
         y: 0,
       });
       gsap.set(videoWrapper, {
-        scaleX: 1,
-        scaleY: 1,
-        x: 0,
+        width: wrapperRect.width,
+        height: wrapperRect.height,
         y: 0,
         transformOrigin: 'left center',
       });
@@ -141,10 +136,9 @@ const Hero = () => {
       heroTl.to(
         videoWrapper,
         {
-          x: targetX,
           y: targetY,
-          scaleX: targetScaleX,
-          scaleY: targetScaleY,
+          width: targetWidth,
+          height: targetHeight,
           ease: 'power2.inOut',
         },
         0
