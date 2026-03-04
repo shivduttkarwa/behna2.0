@@ -41,6 +41,15 @@ const Hero = () => {
     const scrollHint = scrollHintRef.current;
 
     const ctx = gsap.context(() => {
+      const wrapperRect = videoWrapper.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      // Expand to a right-side target (60vw), not fullscreen.
+      const targetWidth = viewportWidth * 0.6;
+      const targetScale = targetWidth / wrapperRect.width;
+      const currentRight = wrapperRect.left + wrapperRect.width;
+      const targetRight = viewportWidth * 0.85;
+      const targetX = targetRight - currentRight;
+
       // Initial states
       gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
         opacity: 1,
@@ -48,6 +57,8 @@ const Hero = () => {
       });
       gsap.set(videoWrapper, {
         scale: 1,
+        x: 0,
+        y: 0,
         transformOrigin: 'center center',
       });
       gsap.set(video, { opacity: 1 });
@@ -62,17 +73,6 @@ const Hero = () => {
           pinSpacing: true,
         },
       });
-
-      // Fade only text/auxiliary elements (not the video container).
-      heroTl.to(
-        heroLeft,
-        {
-          opacity: 0,
-          y: 40,
-          ease: 'power2.out',
-        },
-        0
-      );
 
       heroTl.to(
         bgText,
@@ -119,8 +119,9 @@ const Hero = () => {
       heroTl.to(
         videoWrapper,
         {
-          scale: 1.85,
-          ease: 'power2.out',
+          x: targetX,
+          scale: targetScale,
+          ease: 'power2.inOut',
         },
         0
       );
