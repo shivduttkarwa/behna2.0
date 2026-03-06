@@ -22,42 +22,42 @@ const products: Product[] = [
     name: "Silk Draped Blouse",
     price: 245,
     image:
-      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (1).jpeg",
   },
   {
     id: 2,
     name: "Tailored Wool Coat",
     price: 890,
     image:
-      "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (2).jpeg",
   },
   {
     id: 3,
     name: "Cashmere Midi Skirt",
     price: 420,
     image:
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (5).jpeg",
   },
   {
     id: 4,
     name: "Linen Wide Trousers",
     price: 310,
     image:
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (6).jpeg",
   },
   {
     id: 5,
     name: "Satin Evening Dress",
     price: 1250,
     image:
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (7).jpeg",
   },
   {
     id: 6,
     name: "Oversized Blazer",
     price: 560,
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop",
+      "/assets/images/misc/pic (8).jpeg",
   },
 ];
 

@@ -6,32 +6,32 @@ const Instagram = () => {
     {
       id: '1',
       image:
-        'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (2).jpeg',
     },
     {
       id: '2',
       image:
-        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (5).jpeg',
     },
     {
       id: '3',
       image:
-        'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (6).jpeg',
     },
     {
       id: '4',
       image:
-        'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (7).jpeg',
     },
     {
       id: '5',
       image:
-        'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (8).jpeg',
     },
     {
       id: '6',
       image:
-        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&h=400&fit=crop',
+        '/assets/images/misc/pic (9).jpeg',
     },
   ];
 

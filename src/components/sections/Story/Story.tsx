@@ -30,13 +30,13 @@ const Story = () => {
         <div className="story-images">
           <div className="story-img story-img-1" ref={storyImg1Ref}>
             <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop"
+              src="/assets/images/misc/pic (10).jpeg"
               alt="Our Story"
             />
           </div>
           <div className="story-img story-img-2" ref={storyImg2Ref}>
             <img
-              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&h=400&fit=crop"
+              src="/assets/images/misc/pic (11).jpeg"
               alt="Craftsmanship"
             />
           </div>

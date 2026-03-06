@@ -13,9 +13,9 @@ const Products = () => {
       name: 'Silk Blend Blazer',
       price: 890,
       primaryImage:
-        'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (14).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (15).jpeg',
       colors: ['#0a0a0a', '#E8E3D8', '#8B7355'],
       tag: 'new',
     },
@@ -24,9 +24,9 @@ const Products = () => {
       name: 'Oversized Linen Shirt',
       price: 320,
       primaryImage:
-        'https://images.unsplash.com/photo-1583846783214-7229a91b20ed?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (16).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (17).jpeg',
       colors: ['#FFFFFF', '#D4CFC6'],
     },
     {
@@ -35,9 +35,9 @@ const Products = () => {
       price: 1155,
       originalPrice: 1650,
       primaryImage:
-        'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (18).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (19).jpeg',
       colors: ['#2C2C2C', '#8B6914'],
       tag: 'sale',
     },
@@ -46,9 +46,9 @@ const Products = () => {
       name: 'Pleated Midi Dress',
       price: 580,
       primaryImage:
-        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (20).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (21).jpeg',
       colors: ['#0a0a0a', '#8B0000'],
     },
     {
@@ -56,9 +56,9 @@ const Products = () => {
       name: 'Merino Wool Cardigan',
       price: 420,
       primaryImage:
-        'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (22).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (23).jpeg',
       colors: ['#E8E3D8', '#4A4A4A'],
       tag: 'new',
     },
@@ -67,9 +67,9 @@ const Products = () => {
       name: 'High-Waist Trousers',
       price: 380,
       primaryImage:
-        'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (24).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (25).jpeg',
       colors: ['#0a0a0a', '#2C2C2C', '#D4CFC6'],
     },
     {
@@ -77,9 +77,9 @@ const Products = () => {
       name: 'Structured Wool Coat',
       price: 1280,
       primaryImage:
-        'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (26).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (27).jpeg',
       colors: ['#8B6914', '#0a0a0a'],
     },
     {
@@ -87,9 +87,9 @@ const Products = () => {
       name: 'Silk Camisole Top',
       price: 220,
       primaryImage:
-        'https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (28).jpeg',
       secondaryImage:
-        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&h=650&fit=crop',
+        '/assets/images/misc/pic (1).jpeg',
       colors: ['#FFFFFF', '#0a0a0a', '#8B0000'],
     },
   ];

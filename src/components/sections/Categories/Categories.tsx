@@ -6,31 +6,31 @@ const Categories = () => {
     {
       id: '1',
       name: 'Dresses',
-      image: 'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&h=900&fit=crop',
+      image: '/assets/images/misc/pic (9).jpeg',
       count: 124,
     },
     {
       id: '2',
       name: 'Outerwear',
-      image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&h=400&fit=crop',
+      image: '/assets/images/misc/pic (10).jpeg',
       count: 86,
     },
     {
       id: '3',
       name: 'Knitwear',
-      image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=400&fit=crop',
+      image: '/assets/images/misc/pic (11).jpeg',
       count: 58,
     },
     {
       id: '4',
       name: 'Tailoring',
-      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=400&fit=crop',
+      image: '/assets/images/misc/pic (12).jpeg',
       count: 92,
     },
     {
       id: '5',
       name: 'Accessories',
-      image: 'https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=600&h=400&fit=crop',
+      image: '/assets/images/misc/pic (13).jpeg',
       count: 156,
     },
   ];

@@ -174,7 +174,7 @@ const Hero = () => {
               muted
               playsInline
               preload="auto"
-              poster="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop"
+              poster="/assets/images/misc/pic (1).jpeg"
             >
               <source
                 src="/assets/videos/hero.mp4"

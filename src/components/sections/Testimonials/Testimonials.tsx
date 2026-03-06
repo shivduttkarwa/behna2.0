@@ -13,7 +13,7 @@ const Testimonials = () => {
         name: 'ALEXANDRA WEBB',
         title: 'Fashion Director, Vogue Paris',
         image:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop',
+          '/assets/images/misc/pic (12).jpeg',
       },
     },
   ];
@@ -51,7 +51,7 @@ const Testimonials = () => {
         </div>
         <div className="testimonial-image">
           <img
-            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=800&fit=crop"
+            src="/assets/images/misc/pic (2).jpeg"
             alt="Testimonial"
           />
         </div>

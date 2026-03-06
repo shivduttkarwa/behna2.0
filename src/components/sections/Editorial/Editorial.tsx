@@ -22,7 +22,7 @@ const Editorial = () => {
         </div>
         <div className="editorial-right">
           <img
-            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop"
+            src="/assets/images/misc/pic (13).jpeg"
             alt="Editorial"
             className="editorial-image"
           />
