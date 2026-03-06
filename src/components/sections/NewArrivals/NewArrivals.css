@@ -1,0 +1,304 @@
+/* =============================================
+   NEW ARRIVALS - MINIMAL WITH SWIPER
+   ============================================= */
+
+.new-arrivals {
+  padding: 120px 0;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+
+.new-arrivals__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 clamp(24px, 5vw, 80px);
+  margin-bottom: 50px;
+}
+
+.new-arrivals__header-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-visible .new-arrivals__header-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.new-arrivals__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 12px;
+}
+
+.new-arrivals__title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: var(--noir);
+  margin: 0;
+}
+
+/* Navigation Arrows */
+.new-arrivals__nav {
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.is-visible .new-arrivals__nav {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.new-arrivals__arrow {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--sand);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--noir);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.new-arrivals__arrow:hover {
+  background: var(--noir);
+  border-color: var(--noir);
+  color: var(--blanc);
+}
+
+/* =============================================
+   SWIPER
+   ============================================= */
+
+.new-arrivals__swiper {
+  padding: 0 clamp(24px, 5vw, 80px) !important;
+  overflow: visible !important;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.is-visible .new-arrivals__swiper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.new-arrivals__slide {
+  width: 320px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i) * 0.08s + 0.3s);
+}
+
+.is-visible .new-arrivals__slide {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   CARD
+   ============================================= */
+
+.new-arrivals__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.new-arrivals__card-image {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: var(--stone);
+}
+
+.new-arrivals__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.new-arrivals__card:hover img {
+  transform: scale(1.05);
+}
+
+.new-arrivals__card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.new-arrivals__card-name {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--noir);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.new-arrivals__card:hover .new-arrivals__card-name {
+  color: var(--taupe);
+}
+
+.new-arrivals__card-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--taupe);
+  white-space: nowrap;
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+
+.new-arrivals__scrollbar-wrap {
+  padding: 0 clamp(24px, 5vw, 80px);
+  margin-top: 40px;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.5s;
+}
+
+.is-visible .new-arrivals__scrollbar-wrap {
+  opacity: 1;
+}
+
+.new-arrivals__scrollbar {
+  height: 1px;
+  background: var(--stone);
+  position: relative;
+}
+
+.new-arrivals__scrollbar .swiper-scrollbar-drag {
+  background: var(--noir);
+  height: 1px;
+  border-radius: 0;
+  cursor: grab;
+}
+
+.new-arrivals__scrollbar .swiper-scrollbar-drag:active {
+  cursor: grabbing;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+.new-arrivals__footer {
+  text-align: center;
+  margin-top: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+.is-visible .new-arrivals__footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.new-arrivals__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--noir);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--noir);
+  transition: all 0.3s ease;
+}
+
+.new-arrivals__link:hover {
+  gap: 14px;
+}
+
+.new-arrivals__link svg {
+  transition: transform 0.3s ease;
+}
+
+.new-arrivals__link:hover svg {
+  transform: translateX(3px);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+  .new-arrivals {
+    padding: 80px 0;
+  }
+
+  .new-arrivals__header {
+    margin-bottom: 36px;
+  }
+
+  .new-arrivals__nav {
+    display: none;
+  }
+
+  .new-arrivals__slide {
+    width: 260px;
+  }
+
+  .new-arrivals__card-image {
+    margin-bottom: 16px;
+  }
+
+  .new-arrivals__card-name {
+    font-size: 16px;
+  }
+
+  .new-arrivals__scrollbar-wrap {
+    margin-top: 30px;
+  }
+
+  .new-arrivals__footer {
+    margin-top: 36px;
+  }
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .new-arrivals__header-content,
+  .new-arrivals__nav,
+  .new-arrivals__swiper,
+  .new-arrivals__slide,
+  .new-arrivals__footer,
+  .new-arrivals__scrollbar-wrap {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .new-arrivals__card-image img {
+    transition: none;
+  }
+}

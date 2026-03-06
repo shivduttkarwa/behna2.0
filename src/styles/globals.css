@@ -24,7 +24,7 @@ body {
     background-color: var(--cream);
     color: var(--noir);
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
 }
 
 /* Smooth Scrollbar */
