@@ -19,43 +19,43 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Silk Draped Blouse",
-    price: 245,
+    name: "Anarkali Suit",
+    price: 3499,
     image:
       "/assets/images/misc/pic (1).jpeg",
   },
   {
     id: 2,
-    name: "Tailored Wool Coat",
-    price: 890,
+    name: "Palazzo Co-ord Set",
+    price: 2899,
     image:
       "/assets/images/misc/pic (2).jpeg",
   },
   {
     id: 3,
-    name: "Cashmere Midi Skirt",
-    price: 420,
+    name: "Patiala Suit",
+    price: 2199,
     image:
       "/assets/images/misc/pic (5).jpeg",
   },
   {
     id: 4,
-    name: "Linen Wide Trousers",
-    price: 310,
+    name: "Kurti with Sharara",
+    price: 3199,
     image:
       "/assets/images/misc/pic (6).jpeg",
   },
   {
     id: 5,
-    name: "Satin Evening Dress",
-    price: 1250,
+    name: "Straight Cut Suit",
+    price: 2599,
     image:
       "/assets/images/misc/pic (7).jpeg",
   },
   {
     id: 6,
-    name: "Oversized Blazer",
-    price: 560,
+    name: "Printed Co-ord Set",
+    price: 2799,
     image:
       "/assets/images/misc/pic (8).jpeg",
   },
@@ -178,7 +178,7 @@ const NewArrivals: React.FC = () => {
                   {product.name}
                 </h3>
                 <span className="new-arrivals__card-price">
-                  ${product.price}
+                  ₹{product.price.toLocaleString('en-IN')}
                 </span>
               </div>
             </a>

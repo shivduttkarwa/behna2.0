@@ -41,40 +41,9 @@ const Hero = () => {
     const scrollHint = scrollHintRef.current;
 
     const ctx = gsap.context(() => {
-      // Controls for video expansion behavior.
-      // Tune these values to adjust how the video grows.
-      const expandConfig = {
-        targetWidthVw: 62, // final container width in vw
-        verticalScale: 1.1, // subtle top/bottom growth, centered
-        rightPadding: 16, // px padding from viewport right edge
-        contentGap: 16, // min gap from content
-        clampToContent: false, // allow stronger growth; content remains visible above video
-        scrollDistance: '+=150%',
-      };
-
-      const wrapperRect = videoWrapper.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const contentRect = heroLeft.getBoundingClientRect();
-
-      // Grow inside a right-anchored wrapper (no horizontal translation).
-      const preferredTargetWidth = viewportWidth * (expandConfig.targetWidthVw / 100);
-      const currentRight = wrapperRect.left + wrapperRect.width;
-      const minLeft = contentRect.right + expandConfig.contentGap;
-      const maxAllowedWidthFromContent = currentRight - minLeft;
-      const targetWidth = expandConfig.clampToContent
-        ? Math.max(wrapperRect.width, Math.min(preferredTargetWidth, maxAllowedWidthFromContent))
-        : preferredTargetWidth;
-      const targetHeight = wrapperRect.height;
-
-      // Initial states
       gsap.set([heroLeft, bgText, floatingImg1, floatingImg2, scrollHint], {
         opacity: 1,
         y: 0,
-      });
-      gsap.set(videoWrapper, {
-        width: wrapperRect.width,
-        height: wrapperRect.height,
-        transformOrigin: 'left center',
       });
       gsap.set(video, { opacity: 1 });
 
@@ -82,51 +51,30 @@ const Hero = () => {
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
-          end: expandConfig.scrollDistance,
+          end: '+=150%',
           scrub: true,
           pin: true,
           pinSpacing: true,
+          // invalidateOnRefresh recalculates all functional tween values on every
+          // ScrollTrigger.refresh() (which GSAP fires automatically on window resize).
+          invalidateOnRefresh: true,
         },
       });
 
-      heroTl.to(
-        floatingImg1,
-        {
-          opacity: 0,
-          y: -30,
-          scale: 0.85,
-          ease: 'power2.out',
-        },
-        0
-      );
+      heroTl.to(floatingImg1, { opacity: 0, y: -30, scale: 0.85, ease: 'power2.out' }, 0);
+      heroTl.to(floatingImg2, { opacity: 0, y: 30, scale: 0.85, ease: 'power2.out' }, 0);
+      heroTl.to(scrollHint, { opacity: 0, y: 20, ease: 'power2.out' }, 0);
 
-      heroTl.to(
-        floatingImg2,
-        {
-          opacity: 0,
-          y: 30,
-          scale: 0.85,
-          ease: 'power2.out',
-        },
-        0
-      );
-
-      heroTl.to(
-        scrollHint,
-        {
-          opacity: 0,
-          y: 20,
-          ease: 'power2.out',
-        },
-        0
-      );
-
-      // Keep video visible and scale its wrapper for the expansion effect.
-      heroTl.to(
+      // fromTo with arrow-function values: both start and end are re-read on every resize.
+      heroTl.fromTo(
         videoWrapper,
         {
-          width: targetWidth,
-          height: targetHeight,
+          // Start: natural CSS width of the wrapper (right grid column, 100% of hero-center).
+          width: () => videoWrapper.offsetWidth,
+        },
+        {
+          // End: 62% of current viewport width — consistent expansion ratio on every screen.
+          width: () => window.innerWidth * 0.62,
           ease: 'power2.inOut',
         },
         0
