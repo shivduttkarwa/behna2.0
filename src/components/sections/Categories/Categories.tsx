@@ -1,4 +1,5 @@
 import { Category } from '@/types';
+import { asset } from '@/utils/assets';
 import './Categories.css';
 
 const Categories = () => {
@@ -6,31 +7,31 @@ const Categories = () => {
     {
       id: '1',
       name: 'Dresses',
-      image: '/assets/images/misc/pic (9).jpeg',
+      image: asset('/assets/images/misc/pic (9).jpeg'),
       count: 124,
     },
     {
       id: '2',
       name: 'Outerwear',
-      image: '/assets/images/misc/pic (10).jpeg',
+      image: asset('/assets/images/misc/pic (10).jpeg'),
       count: 86,
     },
     {
       id: '3',
       name: 'Knitwear',
-      image: '/assets/images/misc/pic (11).jpeg',
+      image: asset('/assets/images/misc/pic (11).jpeg'),
       count: 58,
     },
     {
       id: '4',
       name: 'Tailoring',
-      image: '/assets/images/misc/pic (12).jpeg',
+      image: asset('/assets/images/misc/pic (12).jpeg'),
       count: 92,
     },
     {
       id: '5',
       name: 'Accessories',
-      image: '/assets/images/misc/pic (13).jpeg',
+      image: asset('/assets/images/misc/pic (13).jpeg'),
       count: 156,
     },
   ];

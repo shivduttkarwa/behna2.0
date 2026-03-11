@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Testimonial } from '@/types';
+import { asset } from '@/utils/assets';
 import './Testimonials.css';
 
 const Testimonials = () => {
@@ -13,7 +14,7 @@ const Testimonials = () => {
         name: 'ALEXANDRA WEBB',
         title: 'Fashion Director, Vogue Paris',
         image:
-          '/assets/images/misc/pic (12).jpeg',
+          asset('/assets/images/misc/pic (12).jpeg'),
       },
     },
   ];
@@ -51,7 +52,7 @@ const Testimonials = () => {
         </div>
         <div className="testimonial-image">
           <img
-            src="/assets/images/misc/pic (2).jpeg"
+            src={asset('/assets/images/misc/pic (2).jpeg')}
             alt="Testimonial"
           />
         </div>

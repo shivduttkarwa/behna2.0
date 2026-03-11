@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { asset } from '@/utils/assets';
 import './Hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -122,10 +123,10 @@ const Hero = () => {
               muted
               playsInline
               preload="auto"
-              poster="/assets/images/misc/pic (1).jpeg"
+              poster={asset('/assets/images/misc/pic (1).jpeg')}
             >
               <source
-                src="/assets/videos/hero.mp4"
+                src={asset('/assets/videos/hero.mp4')}
                 type="video/mp4"
               />
               Your browser does not support the video tag.
@@ -136,13 +137,13 @@ const Hero = () => {
 
       <div className="hero-floating-img hero-floating-1" ref={floatingImg1Ref}>
         <img
-          src="/assets/images/hero/poster-1.jpeg"
+          src={asset('/assets/images/hero/poster-1.jpeg')}
           alt="Indian woman wearing saree"
         />
       </div>
       <div className="hero-floating-img hero-floating-2" ref={floatingImg2Ref}>
         <img
-          src="/assets/images/hero/poster-2.jpeg"
+          src={asset('/assets/images/hero/poster-2.jpeg')}
           alt="Indian woman wearing traditional lehenga"
         />
       </div>

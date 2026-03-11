@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { asset } from '@/utils/assets';
 import './Story.css';
 
 const Story = () => {
@@ -30,13 +31,13 @@ const Story = () => {
         <div className="story-images">
           <div className="story-img story-img-1" ref={storyImg1Ref}>
             <img
-              src="/assets/images/misc/pic (10).jpeg"
+              src={asset('/assets/images/misc/pic (10).jpeg')}
               alt="Our Story"
             />
           </div>
           <div className="story-img story-img-2" ref={storyImg2Ref}>
             <img
-              src="/assets/images/misc/pic (11).jpeg"
+              src={asset('/assets/images/misc/pic (11).jpeg')}
               alt="Craftsmanship"
             />
           </div>

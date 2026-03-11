@@ -1,3 +1,4 @@
+import { asset } from '@/utils/assets';
 import './Editorial.css';
 
 const Editorial = () => {
@@ -22,7 +23,7 @@ const Editorial = () => {
         </div>
         <div className="editorial-right">
           <img
-            src="/assets/images/misc/pic (13).jpeg"
+            src={asset('/assets/images/misc/pic (13).jpeg')}
             alt="Editorial"
             className="editorial-image"
           />

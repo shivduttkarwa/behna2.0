@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 
+import { asset } from "@/utils/assets";
 import "./NewArrivals.css";
 
 interface Product {
@@ -22,42 +23,42 @@ const products: Product[] = [
     name: "Anarkali Suit",
     price: 3499,
     image:
-      "/assets/images/misc/pic (1).jpeg",
+      asset("/assets/images/misc/pic (1).jpeg"),
   },
   {
     id: 2,
     name: "Palazzo Co-ord Set",
     price: 2899,
     image:
-      "/assets/images/misc/pic (2).jpeg",
+      asset("/assets/images/misc/pic (2).jpeg"),
   },
   {
     id: 3,
     name: "Patiala Suit",
     price: 2199,
     image:
-      "/assets/images/misc/pic (5).jpeg",
+      asset("/assets/images/misc/pic (5).jpeg"),
   },
   {
     id: 4,
     name: "Kurti with Sharara",
     price: 3199,
     image:
-      "/assets/images/misc/pic (6).jpeg",
+      asset("/assets/images/misc/pic (6).jpeg"),
   },
   {
     id: 5,
     name: "Straight Cut Suit",
     price: 2599,
     image:
-      "/assets/images/misc/pic (7).jpeg",
+      asset("/assets/images/misc/pic (7).jpeg"),
   },
   {
     id: 6,
     name: "Printed Co-ord Set",
     price: 2799,
     image:
-      "/assets/images/misc/pic (8).jpeg",
+      asset("/assets/images/misc/pic (8).jpeg"),
   },
 ];
 

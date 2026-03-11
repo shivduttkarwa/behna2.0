@@ -1,4 +1,5 @@
 import { InstagramPost } from '@/types';
+import { asset } from '@/utils/assets';
 import './Instagram.css';
 
 const Instagram = () => {
@@ -6,32 +7,32 @@ const Instagram = () => {
     {
       id: '1',
       image:
-        '/assets/images/misc/pic (2).jpeg',
+        asset('/assets/images/misc/pic (2).jpeg'),
     },
     {
       id: '2',
       image:
-        '/assets/images/misc/pic (5).jpeg',
+        asset('/assets/images/misc/pic (5).jpeg'),
     },
     {
       id: '3',
       image:
-        '/assets/images/misc/pic (6).jpeg',
+        asset('/assets/images/misc/pic (6).jpeg'),
     },
     {
       id: '4',
       image:
-        '/assets/images/misc/pic (7).jpeg',
+        asset('/assets/images/misc/pic (7).jpeg'),
     },
     {
       id: '5',
       image:
-        '/assets/images/misc/pic (8).jpeg',
+        asset('/assets/images/misc/pic (8).jpeg'),
     },
     {
       id: '6',
       image:
-        '/assets/images/misc/pic (9).jpeg',
+        asset('/assets/images/misc/pic (9).jpeg'),
     },
   ];
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Product } from '@/types';
+import { asset } from '@/utils/assets';
 import './Products.css';
 
 const Products = () => {
@@ -13,9 +14,9 @@ const Products = () => {
       name: 'Silk Blend Blazer',
       price: 890,
       primaryImage:
-        '/assets/images/misc/pic (14).jpeg',
+        asset('/assets/images/misc/pic (14).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (15).jpeg',
+        asset('/assets/images/misc/pic (15).jpeg'),
       colors: ['#0a0a0a', '#E8E3D8', '#8B7355'],
       tag: 'new',
     },
@@ -24,9 +25,9 @@ const Products = () => {
       name: 'Oversized Linen Shirt',
       price: 320,
       primaryImage:
-        '/assets/images/misc/pic (16).jpeg',
+        asset('/assets/images/misc/pic (16).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (17).jpeg',
+        asset('/assets/images/misc/pic (17).jpeg'),
       colors: ['#FFFFFF', '#D4CFC6'],
     },
     {
@@ -35,9 +36,9 @@ const Products = () => {
       price: 1155,
       originalPrice: 1650,
       primaryImage:
-        '/assets/images/misc/pic (18).jpeg',
+        asset('/assets/images/misc/pic (18).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (19).jpeg',
+        asset('/assets/images/misc/pic (19).jpeg'),
       colors: ['#2C2C2C', '#8B6914'],
       tag: 'sale',
     },
@@ -46,9 +47,9 @@ const Products = () => {
       name: 'Pleated Midi Dress',
       price: 580,
       primaryImage:
-        '/assets/images/misc/pic (20).jpeg',
+        asset('/assets/images/misc/pic (20).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (21).jpeg',
+        asset('/assets/images/misc/pic (21).jpeg'),
       colors: ['#0a0a0a', '#8B0000'],
     },
     {
@@ -56,9 +57,9 @@ const Products = () => {
       name: 'Merino Wool Cardigan',
       price: 420,
       primaryImage:
-        '/assets/images/misc/pic (22).jpeg',
+        asset('/assets/images/misc/pic (22).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (23).jpeg',
+        asset('/assets/images/misc/pic (23).jpeg'),
       colors: ['#E8E3D8', '#4A4A4A'],
       tag: 'new',
     },
@@ -67,9 +68,9 @@ const Products = () => {
       name: 'High-Waist Trousers',
       price: 380,
       primaryImage:
-        '/assets/images/misc/pic (24).jpeg',
+        asset('/assets/images/misc/pic (24).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (25).jpeg',
+        asset('/assets/images/misc/pic (25).jpeg'),
       colors: ['#0a0a0a', '#2C2C2C', '#D4CFC6'],
     },
     {
@@ -77,9 +78,9 @@ const Products = () => {
       name: 'Structured Wool Coat',
       price: 1280,
       primaryImage:
-        '/assets/images/misc/pic (26).jpeg',
+        asset('/assets/images/misc/pic (26).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (27).jpeg',
+        asset('/assets/images/misc/pic (27).jpeg'),
       colors: ['#8B6914', '#0a0a0a'],
     },
     {
@@ -87,9 +88,9 @@ const Products = () => {
       name: 'Silk Camisole Top',
       price: 220,
       primaryImage:
-        '/assets/images/misc/pic (28).jpeg',
+        asset('/assets/images/misc/pic (28).jpeg'),
       secondaryImage:
-        '/assets/images/misc/pic (1).jpeg',
+        asset('/assets/images/misc/pic (1).jpeg'),
       colors: ['#FFFFFF', '#0a0a0a', '#8B0000'],
     },
   ];
